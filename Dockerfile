@@ -8,6 +8,9 @@ RUN apt-get install -y \
     		zlib1g-dev \
     		libxml2-dev
 
+RUN rm -rf /var/lib/apt/lists/*
+
+
 RUN set -e; \
     docker-php-ext-configure gd --with-jpeg --with-webp --with-freetype; \
     docker-php-ext-install -j$(nproc) gd
